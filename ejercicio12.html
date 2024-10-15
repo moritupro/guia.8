@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de un Círculo</title>
+    <script>
+        function calcularAreaCirculo() {
+            // Obtener el valor del radio ingresado por el usuario
+            const radio = document.getElementById("radio").value;
+
+            // Validar que el radio sea un número positivo
+            if (radio <= 0 || isNaN(radio)) {
+                alert("Por favor, ingresa un radio válido.");
+                return;
+            }
+
+            // Calcular el área del círculo (Área = π * radio^2)
+            const area = Math.PI * Math.pow(radio, 2);
+
+            // Mostrar el resultado en el elemento con id "resultado"
+            document.getElementById("resultado").innerHTML = `El área del círculo es: ${area.toFixed(2)} unidades cuadradas.`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Cálculo del Área de un Círculo</h1>
+
+    <label for="radio">Ingresa el radio del círculo:</label>
+    <input type="number" id="radio" placeholder="Ej: 5">
+
+    <button onclick="calcularAreaCirculo()">Calcular Área</button>
+
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Promedio</title>
+</head>
+<body>
+    <h1>Calculadora de Promedio</h1>
+    
+    <form id="promedioForm">
+        <div>
+            <label for="num1">Número 1:</label>
+            <input type="number" id="num1" required>
+        </div>
+        <div>
+            <label for="num2">Número 2:</label>
+            <input type="number" id="num2" required>
+        </div>
+        <div>
+            <label for="num3">Número 3:</label>
+            <input type="number" id="num3" required>
+        </div>
+        <button type="button" onclick="calcularPromedio()">Calcular Promedio</button>
+    </form>
+
+    <h2>Resultado: <span id="resultado"></span></h2>
+
+    <script>
+        function calcularPromedio() {
+            // Obtener los valores de los inputs
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const num3 = parseFloat(document.getElementById('num3').value);
+
+            // Calcular el promedio
+            const promedio = (num1 + num2 + num3) / 3;
+
+            // Mostrar el resultado en el elemento con id 'resultado'
+            document.getElementById('resultado').textContent = promedio.toFixed(2); // Limitar a 2 decimales
+        }
+    </script>
+</body>
+</html>

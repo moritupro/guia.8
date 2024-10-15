@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar el Número Mayor</title>
+</head>
+<body>
+    <h1>Encuentra el Número Mayor</h1>
+    
+    <form id="mayorForm">
+        <div>
+            <label for="num1">Número 1:</label>
+            <input type="number" id="num1" required>
+        </div>
+        <div>
+            <label for="num2">Número 2:</label>
+            <input type="number" id="num2" required>
+        </div>
+        <div>
+            <label for="num3">Número 3:</label>
+            <input type="number" id="num3" required>
+        </div>
+        <button type="button" onclick="encontrarMayor()">Encontrar Mayor</button>
+    </form>
+
+    <h2>Resultado: <span id="resultado"></span></h2>
+
+    <script>
+        function encontrarMayor() {
+            // Obtener los valores de los tres inputs
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const num3 = parseFloat(document.getElementById('num3').value);
+
+            // Encontrar el número mayor
+            const mayor = Math.max(num1, num2, num3);
+
+            // Mostrar el resultado en el elemento con id 'resultado'
+            document.getElementById('resultado').textContent = 'El número mayor es: ' + mayor;
+        }
+    </script>
+</body>
+</html>

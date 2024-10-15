@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ventas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .producto {
+            margin-bottom: 10px;
+        }
+        .resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Registro de Ventas</h1>
+
+    <form id="ventaForm">
+        <div class="producto">
+            <label for="producto1">Producto 1 (Precio):</label>
+            <input type="number" id="producto1" step="0.01" required>
+        </div>
+        <div class="producto">
+            <label for="producto2">Producto 2 (Precio):</label>
+            <input type="number" id="producto2" step="0.01">
+        </div>
+        <div class="producto">
+            <label for="producto3">Producto 3 (Precio):</label>
+            <input type="number" id="producto3" step="0.01">
+        </div>
+        <button type="button" onclick="calcularTotal()">Calcular Total</button>
+    </form>
+
+    <div class="resultado">
+        <h2>Total sin descuento: $<span id="totalSinDescuento"></span></h2>
+        <h2>Total con descuento: $<span id="totalConDescuento"></span></h2>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            // Obtener los precios de los productos
+            const producto1 = parseFloat(document.getElementById('producto1').value) || 0;
+            const producto2 = parseFloat(document.getElementById('producto2').value) || 0;
+            const producto3 = parseFloat(document.getElementById('producto3').value) || 0;
+
+            // Calcular el total sin descuento
+            const totalSinDescuento = producto1 + producto2 + producto3;
+
+            // Mostrar el total sin descuento
+            document.getElementById('totalSinDescuento').textContent = totalSinDescuento.toFixed(2);
+
+            // Calcular el total con descuento si supera $100
+            let totalConDescuento = totalSinDescuento;
+            if (totalSinDescuento > 100) {
+                totalConDescuento = totalSinDescuento * 0.90; // Aplicar 10% de descuento
+            }
+
+            // Mostrar el total con descuento
+            document.getElementById('totalConDescuento').textContent = totalConDescuento.toFixed(2);
+        }
+    </script>
+</body>
+</html>

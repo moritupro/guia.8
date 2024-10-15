@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invertir Cadena de Texto</title>
+</head>
+<body>
+    <h1>Invertir Cadena de Texto</h1>
+    
+    <form id="invertirForm">
+        <div>
+            <label for="texto">Introduce una cadena de texto:</label>
+            <input type="text" id="texto" required>
+        </div>
+        <button type="button" onclick="invertirTexto()">Invertir</button>
+    </form>
+
+    <h2>Texto invertido: <span id="resultado"></span></h2>
+
+    <script>
+        function invertirTexto() {
+            // Obtener el valor del input
+            const texto = document.getElementById('texto').value;
+
+            // Invertir el texto usando split, reverse y join
+            const textoInvertido = texto.split('').reverse().join('');
+
+            // Mostrar el resultado en el elemento con id 'resultado'
+            document.getElementById('resultado').textContent = textoInvertido;
+        }
+    </script>
+</body>
+</html>

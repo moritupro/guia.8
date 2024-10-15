@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de Precios de Productos</title>
+    <script>
+        function mostrarProductos() {
+            // Crear un array multidimensional con productos y precios
+            const productos = [
+                ["Pan", 1.50],
+                ["Leche", 3.20],
+                ["Queso", 5.00],
+                ["Mantequilla", 2.80],
+                ["Huevos", 4.50]
+            ];
+
+            // Variable para almacenar la suma de los precios
+            let sumaPrecios = 0;
+
+            // Construir la tabla de productos y sumar los precios
+            let tabla = "<table border='1'><tr><th>Producto</th><th>Precio (S/.)</th></tr>";
+            for (let i = 0; i < productos.length; i++) {
+                tabla += "<tr><td>" + productos[i][0] + "</td><td>" + productos[i][1].toFixed(2) + "</td></tr>";
+                sumaPrecios += productos[i][1]; // Sumar el precio del producto
+            }
+            tabla += "</table>";
+
+            // Mostrar la tabla en el HTML
+            document.getElementById("listaProductos").innerHTML = tabla;
+
+            // Mostrar la suma total de los precios
+            document.getElementById("sumaPrecios").innerHTML = "La suma total de los precios es: S/. " + sumaPrecios.toFixed(2);
+        }
+    </script>
+</head>
+<body onload="mostrarProductos()">
+    <h1>Lista de Productos y Precios</h1>
+    <div id="listaProductos"></div>
+    <p id="sumaPrecios"></p>
+</body>
+</html>
